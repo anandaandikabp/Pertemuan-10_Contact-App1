@@ -1,0 +1,30 @@
+<div class="container-fluid p-5">
+    <div class="row">
+        <div class="col">
+            <div class="jumbotron">
+                <h1 class="display-4">Welcome <%= nama %>
+                </h1>
+                <hr class="my-4">
+                <h2>Contact List</h2>
+                <!-- menampilkan data dari app -->
+
+                <ul class="list-group">
+                    <li class="list-group-item active" aria-current="true">An active item</li>
+                    <li class="list-group-item">
+                        <% if (contact.length> 1) { %>
+                            <% contact.forEach(contact=> { %>
+                                <ul>
+                                    <li>nama: <%= contact.name %> <br>
+                                        email: <%= contact.email %>
+                                    </li>
+                                </ul>
+                                <% }) %>
+                                    <% } else { %>
+                                        <p>data tidak ditemukan</p>
+                                        <% } %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
