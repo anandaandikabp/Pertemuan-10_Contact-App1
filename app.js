@@ -21,12 +21,10 @@ app.use(express.static('public'))
 app.use(morgan('dev')); 
 
 app.get('/', (req, res, next) => {
-    const contact = loadContact();
     res.render('index',
         {
             nama: 'Alya',
             title: 'Webserver EJS',
-            contact,
             layout: 'layout/main-layout',
         });
 });
@@ -36,7 +34,12 @@ app.get('/about', (req, res, next) => {
 });
 
 app.get('/contact', (req, res, next) => {
-    res.render('contact', { title: 'contact', layout: 'layout/main-layout', });
+    const contact = loadContact();
+    res.render('contact', { 
+        title: 'contact',
+        layout: 'layout/main-layout',
+        contact,
+    });
 });
 
 app.get('/product/:id?', (req, res) => {
